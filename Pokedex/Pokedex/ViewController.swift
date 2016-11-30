@@ -10,9 +10,14 @@ import UIKit
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    @IBOutlet weak var collection: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    
+        collection.delegate = self
+        collection.dataSource = self
+    
     }
     
     
@@ -22,6 +27,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PokeCell", for: indexPath) as? PokeCell {
             
+            let pokemon = Pokemon(name: "Pokemon", pokedexID: indexPath.row)
+            
+            cell.configureCell(pokemon: pokemon)
             
             return cell
             
