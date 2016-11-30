@@ -8,6 +8,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="pokemonFont.ttf">
+            <string>PokemonSolidNormal</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -23,8 +28,31 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pjp-TH-y2m">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PokeDEX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wxX-Dc-08B">
+                                        <rect key="frame" x="118" y="22" width="138" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="ld8-pn-BAO"/>
+                                            <constraint firstAttribute="width" constant="138" id="p4R-zT-Tub"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvH-Df-cG7">
+                                        <rect key="frame" x="345" y="35" width="22" height="22"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="z3y-gz-JXJ" kind="show" id="yfz-Ht-ux4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="1" green="0.37254901960784315" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="dvH-Df-cG7" secondAttribute="bottom" constant="8" id="8id-z4-RUx"/>
+                                    <constraint firstItem="wxX-Dc-08B" firstAttribute="centerX" secondItem="pjp-TH-y2m" secondAttribute="centerX" id="EJV-i6-yB6"/>
+                                    <constraint firstAttribute="bottom" secondItem="wxX-Dc-08B" secondAttribute="bottom" constant="8" id="T5J-la-QXa"/>
+                                    <constraint firstAttribute="trailing" secondItem="dvH-Df-cG7" secondAttribute="trailing" constant="8" id="YaK-9L-rxg"/>
                                     <constraint firstAttribute="height" constant="65" id="cQ6-Tc-u4a"/>
                                 </constraints>
                             </view>
@@ -39,7 +67,7 @@
                                 <rect key="frame" x="0.0" y="109" width="375" height="558"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eol-lN-Khv">
-                                <rect key="frame" x="20" y="129" width="335" height="518"/>
+                                <rect key="frame" x="20" y="129" width="335" height="498"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JpM-8j-Tez">
                                     <size key="itemSize" width="105" height="105"/>
@@ -87,9 +115,21 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfT-Pz-DuZ">
+                                <rect key="frame" x="340" y="632" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Zei-F2-6dJ"/>
+                                    <constraint firstAttribute="width" constant="30" id="pL2-Ms-lsz"/>
+                                </constraints>
+                                <state key="normal" image="music"/>
+                                <connections>
+                                    <action selector="musicButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aU6-Qv-vfF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="mfT-Pz-DuZ" secondAttribute="trailing" constant="5" id="0Bi-Fw-pcv"/>
                             <constraint firstItem="pjp-TH-y2m" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="5vc-PQ-lUL"/>
                             <constraint firstAttribute="trailing" secondItem="62K-V8-O6J" secondAttribute="trailing" id="BgY-8U-oy0"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Cee-Uv-0HF" secondAttribute="bottom" id="KQQ-0b-9Ha"/>
@@ -99,8 +139,9 @@
                             <constraint firstItem="eol-lN-Khv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="pEs-3U-Mcj"/>
                             <constraint firstAttribute="trailing" secondItem="Cee-Uv-0HF" secondAttribute="trailing" id="pew-Pu-nWt"/>
                             <constraint firstItem="pjp-TH-y2m" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="prI-LD-lgX"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="eol-lN-Khv" secondAttribute="bottom" constant="20" id="qAy-dB-he5"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="eol-lN-Khv" secondAttribute="bottom" constant="40" id="qAy-dB-he5"/>
                             <constraint firstItem="62K-V8-O6J" firstAttribute="top" secondItem="pjp-TH-y2m" secondAttribute="bottom" id="tgG-yT-M3b"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mfT-Pz-DuZ" secondAttribute="bottom" constant="5" id="uyU-7b-MP6"/>
                             <constraint firstItem="Cee-Uv-0HF" firstAttribute="top" secondItem="62K-V8-O6J" secondAttribute="bottom" id="vCU-tV-hn2"/>
                             <constraint firstItem="Cee-Uv-0HF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="waM-nr-ESl"/>
                             <constraint firstAttribute="trailing" secondItem="eol-lN-Khv" secondAttribute="trailing" constant="20" id="yUo-zV-A4x"/>
@@ -114,9 +155,91 @@
             </objects>
             <point key="canvasLocation" x="-79.200000000000003" y="138.98050974512745"/>
         </scene>
+        <!--About ScreenVC-->
+        <scene sceneID="L1e-Dg-BVH">
+            <objects>
+                <viewController id="z3y-gz-JXJ" customClass="AboutScreenVC" customModule="Pokedex" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="q5s-jD-YgZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Q2x-z1-8aQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BO7-a0-n9j">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UAb-bf-Ru8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ACMELABS Logo" translatesAutoresizingMaskIntoConstraints="NO" id="uGb-Fi-EN3">
+                                        <rect key="frame" x="67" y="65" width="240" height="128"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="Rsa-27-dPV"/>
+                                            <constraint firstAttribute="height" constant="128" id="WIY-sh-pjI"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="G3Y-5C-z5b">
+                                        <rect key="frame" x="114" y="268" width="148" height="72"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PokeDEX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uB6-Un-Cmz">
+                                                <rect key="frame" x="0.0" y="0.0" width="148" height="52.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="52.5" id="3hR-qp-1JR"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="37"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v1.0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3oT-g7-kGx">
+                                                <rect key="frame" x="55" y="52.5" width="38.5" height="19.5"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="148" id="W1J-2L-6mY"/>
+                                            <constraint firstAttribute="height" constant="72" id="ZEX-Gg-j0N"/>
+                                            <constraint firstItem="3oT-g7-kGx" firstAttribute="top" secondItem="uB6-Un-Cmz" secondAttribute="bottom" id="jTG-BW-blY"/>
+                                        </constraints>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NyL-Yl-4Pz">
+                                        <rect key="frame" x="164" y="536" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Back">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backButton:" destination="z3y-gz-JXJ" eventType="touchUpInside" id="kBZ-H7-uwq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.27914822114838578" green="0.93585421954314718" blue="0.85468640241271865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="G3Y-5C-z5b" firstAttribute="top" secondItem="uGb-Fi-EN3" secondAttribute="bottom" constant="75" id="NWe-Ff-bPK"/>
+                                    <constraint firstItem="uGb-Fi-EN3" firstAttribute="top" secondItem="UAb-bf-Ru8" secondAttribute="top" constant="65" id="PhX-tz-ab1"/>
+                                    <constraint firstItem="uGb-Fi-EN3" firstAttribute="centerX" secondItem="UAb-bf-Ru8" secondAttribute="centerX" id="dPe-NO-DCn"/>
+                                    <constraint firstItem="G3Y-5C-z5b" firstAttribute="centerX" secondItem="UAb-bf-Ru8" secondAttribute="centerX" id="z7c-OG-LLe"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Q2x-z1-8aQ" firstAttribute="top" secondItem="UAb-bf-Ru8" secondAttribute="bottom" id="0fF-g3-3aT"/>
+                            <constraint firstAttribute="trailing" secondItem="UAb-bf-Ru8" secondAttribute="trailing" id="A0j-5z-tZa"/>
+                            <constraint firstItem="UAb-bf-Ru8" firstAttribute="leading" secondItem="BO7-a0-n9j" secondAttribute="leading" id="oSX-XH-5i7"/>
+                            <constraint firstItem="UAb-bf-Ru8" firstAttribute="top" secondItem="BO7-a0-n9j" secondAttribute="top" id="tU6-iY-yag"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TNP-Ug-HLQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="642" y="-593"/>
+        </scene>
     </scenes>
     <resources>
         <image name="4" width="120" height="120"/>
+        <image name="ACMELABS Logo" width="624" height="330"/>
         <image name="background" width="1920" height="1200"/>
+        <image name="music" width="100" height="100"/>
     </resources>
 </document>
