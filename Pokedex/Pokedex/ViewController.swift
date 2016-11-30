@@ -12,13 +12,19 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     @IBOutlet weak var collection: UICollectionView!
     
+    var pokemonData = PokemonParser()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
         collection.delegate = self
         collection.dataSource = self
+        
+        pokemonData.parsePokemonCSV()
+        
     
     }
+
     
     
     // Collection View Protocols
@@ -27,9 +33,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PokeCell", for: indexPath) as? PokeCell {
             
-            let pokemon = Pokemon(name: "Pokemon", pokedexID: indexPath.row)
+            let poke = pokemonData.pokemon[indexPath.row]
             
-            cell.configureCell(pokemon: pokemon)
+            cell.configureCell(poke)
             
             return cell
             
@@ -45,7 +51,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return pokemonData.pokemon.count
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
