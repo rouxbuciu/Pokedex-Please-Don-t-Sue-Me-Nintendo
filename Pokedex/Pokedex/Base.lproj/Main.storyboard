@@ -445,7 +445,19 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="attackLbl" destination="PZT-r2-2en" id="cq6-xW-aVt"/>
+                        <outlet property="currentEvolutionImg" destination="hfA-1X-mz0" id="hAR-i2-we9"/>
+                        <outlet property="defenseLbl" destination="VWW-cy-o67" id="Fha-k0-BYO"/>
+                        <outlet property="descriptionLbl" destination="XPf-3r-myd" id="3o0-Nc-9cB"/>
+                        <outlet property="heightLbl" destination="Bgg-v7-uWC" id="da3-Fs-84g"/>
+                        <outlet property="mainImg" destination="9CT-4j-ttL" id="b3J-uB-aq7"/>
                         <outlet property="nameLabel" destination="saA-rz-nt3" id="6nJ-6X-4gF"/>
+                        <outlet property="nextEvolutionImg" destination="lYe-7y-9Ma" id="jec-rk-Zgw"/>
+                        <outlet property="nextEvolutionLbl" destination="Dfp-Cg-tEK" id="OIm-wI-Eyg"/>
+                        <outlet property="pokedekIDLbl" destination="U4j-3q-bd5" id="9d5-CU-hGR"/>
+                        <outlet property="segmentedControl" destination="1xB-mW-1ot" id="QS2-mX-fEn"/>
+                        <outlet property="typeLbl" destination="aBS-mf-FeH" id="SIO-CX-JE6"/>
+                        <outlet property="weightLbl" destination="NAJ-gA-VVq" id="Vme-cL-JOh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hkF-7F-WXQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
