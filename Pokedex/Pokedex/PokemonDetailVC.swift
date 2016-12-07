@@ -23,6 +23,7 @@ class PokemonDetailVC: UIViewController {
     @IBOutlet weak var currentEvolutionImg: UIImageView!
     @IBOutlet weak var nextEvolutionImg: UIImageView!
     
+    
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     var pokemon: Pokemon!
@@ -32,6 +33,38 @@ class PokemonDetailVC: UIViewController {
 
         // Do any additional setup after loading the view.
         nameLabel.text = pokemon.name.capitalized
+        
+        let img = UIImage(named: "\(pokemon.pokedexID)")
+        mainImg.image = img
+        currentEvolutionImg.image = img
+        pokedekIDLbl.text = "\(pokemon.pokedexID)"
+        
+        pokemon.downloadPokemonDetails {
+            print("Get on my level, son!")
+            //WHatever we write here will complete only when the network call is done
+            
+            self.updateUI()
+        }
+    }
+    
+    func updateUI() {
+        
+        attackLbl.text = pokemon.attack
+        defenseLbl.text = pokemon.defense
+        heightLbl.text = pokemon.height
+        weightLbl.text = pokemon.weight
+        typeLbl.text = pokemon.type
+        descriptionLbl.text = pokemon.description
+        
+        if pokemon.nextEvolutionID == "" {
+            nextEvolutionLbl.text = "No Evolutions"
+            nextEvolutionImg.isHidden = true
+        } else {
+            nextEvolutionLbl.text = pokemon.nextEvolutionText
+            nextEvolutionImg.isHidden = false
+            nextEvolutionImg.image = UIImage(named: pokemon.nextEvolutionID)
+        }
+        
     }
 
     
