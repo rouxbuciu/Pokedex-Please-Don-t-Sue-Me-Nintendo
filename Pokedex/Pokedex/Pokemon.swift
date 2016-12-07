@@ -213,6 +213,8 @@ class Pokemon {
                         let nextEvoID = newStr.replacingOccurrences(of: "/", with: "")
                         
                         self._nextEvolutionID = nextEvoID
+                        print(nextEvoID)
+                        print("It's \(self._nextEvolutionID)")
                     }
                         
                     if let lvlExst = evolutions[0]["level"] {

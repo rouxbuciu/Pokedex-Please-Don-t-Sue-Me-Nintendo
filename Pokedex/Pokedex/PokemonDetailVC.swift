@@ -56,7 +56,7 @@ class PokemonDetailVC: UIViewController {
         typeLbl.text = pokemon.type
         descriptionLbl.text = pokemon.description
         
-        if pokemon.nextEvolutionID == "" {
+        if pokemon.nextEvolutionID == "" || Int(pokemon.nextEvolutionID)! > 800 {
             nextEvolutionLbl.text = "No Evolutions"
             nextEvolutionImg.isHidden = true
         } else {
