@@ -19,6 +19,7 @@ class Pokemon {
     private var _height: String!
     private var _attack: String!
     private var _nextEvolutionTxt: String!
+    private var _pokemonURL: String!
     
     
     var name: String {
@@ -33,6 +34,14 @@ class Pokemon {
         
         self._name = name
         self._pokedexID = pokedexID
+        
+        self._pokemonURL = "\(URL_BASE)\(URL_POKEMON)\(self._pokedexID)/"
+    }
+    
+    func downloadPokemonDetails() {
+        
+        
+        
     }
     
 }
